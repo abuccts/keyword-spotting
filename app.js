@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 
 app.post('/public', multipartMiddleware, function(req, res) {
 	var seq = req.body.seq;
-	var sh = 'echo';
+	var sh = './query.sh';
 	console.log('query: ' + seq);
 	process.execFile(sh, [seq], null, function(error, stdout, stderr) {
 		if (error !== null) {
