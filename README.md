@@ -11,3 +11,9 @@ npm install
 ```
 node app.js
 ```
+
+## API
+```
+./query "input sequence"
+```
+**Just print the return js list to stdout**
