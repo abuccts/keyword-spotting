@@ -1,0 +1,29 @@
+{
+  "name": "redesigned-umbrella",
+  "version": "1.0.0",
+  "description": "ASR Demo",
+  "main": "app.js",
+  "dependencies": {
+    "connect-multiparty": "^2.0.0",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abuccts/redesigned-umbrella.git"
+  },
+  "keywords": [
+    "asr",
+    "query",
+    "demo"
+  ],
+  "author": "xyf",
+  "bugs": {
+    "url": "https://github.com/Abuccts/redesigned-umbrella/issues"
+  },
+  "homepage": "https://github.com/Abuccts/redesigned-umbrella#readme",
+  "license": "ISC"
+}
