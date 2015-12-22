@@ -15,14 +15,14 @@ app.get('/', function(req, res) {
 
 app.post('/public', multipartMiddleware, function(req, res) {
 	var seq = req.body.seq;
-	var sh = './query.sh';
+	var sh = './test.sh';
 	console.log('query: ' + seq);
 	process.execFile(sh, [seq], null, function(error, stdout, stderr) {
 		if (error !== null) {
 			console.log('exec error: ' + error);
 			res.json({
 				status: -1,
-				})
+			});
 		}
 		else {
 			console.log(stdout);
