@@ -7,40 +7,58 @@
 		
 		<title>Keyword Spotting</title>
 		
-		<link type="text/css" href="css/index.css" rel="stylesheet">		
+		<link type="text/css" href="css/index.css" rel="stylesheet">	
+		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">		
 	</head>
 
 	<body class="webdesigntuts-workshop">
+		<h1 id="title">Keyword Spotting</h1>
 		<div>
 			<form action="index.html">		
 				<input type="text" id="input" placeholder="Search..." autofocus>		    	
 				<button>Search</button>
 			</form>
 		</div>
-		<h1 id="title">Keyword Spotting</h1>
+		<div id="result" class="container">
+			<table class="table">
+				</tbody>
+					<tr>
+						<td>0</td>
+						<td>1</td>
+						<td>dakcfbjgfjdshakfnhdlkj asdclkfhdsnkhf cfjklafhds</td>
+					</tr>
+					<tr>
+						<td>0</td>
+						<td>1</td>
+						<td>fhlehuiehr rgrjhgrhkjd ss</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 		<script src="jquery-1.10.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		<script>
 		$(document).ready(function(){
-		  $("button").click(function(){
+		  $('button').click(function(){
 			var query = new  FormData();
-			alert(document.getElementById('input').value);
 			query.append('seq', document.getElementById('input').value);
-				$.ajax({
-						type: 'POST',
-						url: '/public',
-						data: query,
-						processData: false,
-						contentType: false,
-						success: function (res) {
-						   alert(res.data);
-						},
-						error: function () {
-							console.log(arguments);
-						}
-					});
+			$.ajax({
+					type: 'POST',
+					url: '/public',
+					data: query,
+					processData: false,
+					contentType: false,
+					success: function(res) {
+						alert('aaaa');
+						alert(res.data);
+					},
+					error: function() {
+						console.log(arguments);
+					}
 				});
 			});
+		});
 		</script>
 	</body>
 </html>

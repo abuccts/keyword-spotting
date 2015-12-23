@@ -10,9 +10,16 @@
 #title {
 	font-family: Consolas;
 	color: white;
-	position: absolute;
-	top: 40px;
-	left:39%;
+	position:absolute;
+	top: 50px;
+	width: 100%;
+}
+
+#result {
+	font-family: Cabin;
+	text-align: center;
+	color:white;
+	padding-top: 40px;
 }
 
 .webdesigntuts-workshop {
