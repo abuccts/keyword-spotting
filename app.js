@@ -17,6 +17,7 @@ app.post('/public', multipartMiddleware, function(req, res) {
 	var seq = req.body.seq.replace(/ /g, '_');
 	var sh = './test.sh';
 	console.log('query: ' + seq);
+	console.log('shell: ' + sh);
 	process.execFile(sh, [seq], null, function(error, stdout, stderr) {
 		if (error !== null) {
 			console.log('exec error: ' + error);
@@ -26,6 +27,7 @@ app.post('/public', multipartMiddleware, function(req, res) {
 		}
 		else {
 			console.log(stdout);
+			//console.log(stderr);
 			res.json({
 				status: 0,
 				data: stdout

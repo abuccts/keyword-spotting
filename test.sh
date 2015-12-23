@@ -1,3 +1,4 @@
 #!/bin/bash
 
-./query.sh $1 | tail -n 1
+cd ..
+./run_kws.sh $1 | tail -n 1
