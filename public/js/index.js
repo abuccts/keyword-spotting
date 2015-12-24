@@ -3,7 +3,8 @@ $(document).ready(function() {
 	$('#result').html('<img src="img/load.gif">');
 	var query = new FormData();
 	query.append('seq', document.getElementById('input').value);
-	document.getElementById('input').value = '';
+	//document.getElementById('input').value = '';
+	document.getElementById('input').disabled = true;
 	$.ajax({
 			type: 'POST',
 			url: '/public',
@@ -23,6 +24,8 @@ $(document).ready(function() {
 				else {
 					$('#result').html('<h2>Not Found : (</h2>');
 				}
+				document.getElementById('input').value = '';
+				document.getElementById('input').disabled = false;
 				document.getElementById('input').focus();
 			},
 			error: function(res) {
