@@ -28,6 +28,10 @@
 	padding-top: 40px;
 }
 
+#key {
+	color: red;
+}
+
 .webdesigntuts-workshop {
 	background: #151515;
 	height: 100%;

@@ -6,9 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<title>Keyword Spotting</title>
+		<link rel="icon" href="img/KWS.png" title="Keyword Spotting">
 		
-		<link type="text/css" href="css/index.css" rel="stylesheet">	
-		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">		
+		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+		<link type="text/css" href="css/index.css" rel="stylesheet">				
 	</head>
 
 	<body class="webdesigntuts-workshop">
@@ -22,39 +23,6 @@
 
 		<script src="js/jquery-1.10.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script>
-		$(document).ready(function() {
-		  $('button').click(function() {
-			$('#result').html('');
-			var query = new FormData();
-			query.append('seq', document.getElementById('input').value);
-			document.getElementById('input').value = '';
-			$.ajax({
-					type: 'POST',
-					url: '/public',
-					data: query,
-					processData: false,
-					contentType: false,
-					dataType: 'JSON',
-					success: function(res) {
-						if (res.status == 0) {
-							$('#result').append('<table class="table"><tbody></tbody></table>');
-							$.each(res.data, function(i, field) {
-								$('#result').children('table').children('tbody').append('<tr><td>' + 
-											i + '</td><td>' + field[0] + '</td><td>' + field[1] + '</td></tr>');
-							});
-							//console.log(res.data);
-						}
-						else {
-							$('#result').append('<h2>Not Found : (</h2>');
-						}		
-					},
-					error: function(res) {
-						console.log(arguments);
-					}
-				});
-			});
-		});
-		</script>
+		<script src="js/index.js"></script>
 	</body>
 </html>
