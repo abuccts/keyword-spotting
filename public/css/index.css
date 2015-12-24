@@ -63,7 +63,7 @@
 	top: 191px;
 }
 
-.webdesigntuts-workshop form {
+.webdesigntuts-workshop #form {
 	background: #111;
 	background: -webkit-linear-gradient(#1b1b1b, #111);
 	background: -moz-linear-gradient(#1b1b1b, #111);

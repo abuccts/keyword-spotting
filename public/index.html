@@ -13,47 +13,37 @@
 
 	<body class="webdesigntuts-workshop">
 		<h1 id="title">Keyword Spotting</h1>
-		<div>
-			<form action="index.html">		
-				<input type="text" id="input" placeholder="Search..." autofocus>		    	
-				<button>Search</button>
-			</form>
+		<div id="form">
+			<input type="text" id="input" placeholder="Search..." onkeypress="if(event.keyCode == 13){$('button').click()}" autofocus>		    	
+			<button>Search</button>
 		</div>
-		<div id="result" class="container">
-			<table class="table">
-				</tbody>
-					<tr>
-						<td>0</td>
-						<td>1</td>
-						<td>dakcfbjgfjdshakfnhdlkj asdclkfhdsnkhf cfjklafhds</td>
-					</tr>
-					<tr>
-						<td>0</td>
-						<td>1</td>
-						<td>fhlehuiehr rgrjhgrhkjd ss</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<div id="result" class="container"></div>
 
-		<script src="jquery-1.10.1.min.js"></script>
+		<script src="js/jquery-1.10.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script>
-		$(document).ready(function(){
-		  $('button').click(function(){
-			var query = new  FormData();
+		$(document).ready(function() {
+		  $('button').click(function() {
+			$('#result').html('');
+			var query = new FormData();
 			query.append('seq', document.getElementById('input').value);
+			document.getElementById('input').value = '';
 			$.ajax({
 					type: 'POST',
 					url: '/public',
 					data: query,
 					processData: false,
 					contentType: false,
+					dataType: 'JSON',
 					success: function(res) {
-						alert('aaaa');
-						alert(res.data);
+						$('#result').append('<table class="table"><tbody></tbody></table>');
+						$.each(res.data, function(i, field) {
+							$('#result').children('table').children('tbody').append('<tr><td>' + 
+										i + '</td><td>' + field[0] + '</td><td>' + field[1] + '</td></tr>');
+						});
+						//console.log(res.data);
 					},
-					error: function() {
+					error: function(res) {
 						console.log(arguments);
 					}
 				});
