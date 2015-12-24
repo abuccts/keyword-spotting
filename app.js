@@ -28,7 +28,7 @@ app.post('/public', multipartMiddleware, function(req, res) {
 		else {
 			console.log(stdout);
 			//console.log(stderr);
-			if (stdout == 'None') {
+			if (stdout == 'None\n') {
 				res.json({
 					"status": -2
 				});
