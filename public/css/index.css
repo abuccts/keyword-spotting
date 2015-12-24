@@ -15,6 +15,12 @@
 	width: 100%;
 }
 
+#slogan {
+	position:absolute;
+	top: 20px;
+	left: 40%;
+}
+
 #result {
 	font-family: Cabin;
 	text-align: center;
