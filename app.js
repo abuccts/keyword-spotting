@@ -28,10 +28,17 @@ app.post('/public', multipartMiddleware, function(req, res) {
 		else {
 			console.log(stdout);
 			//console.log(stderr);
-			res.json({
-				"status": 0,
-				"data": eval('(' + stdout + ')')
-			});
+			if (stdout == 'None') {
+				res.json({
+					"status": -2
+				});
+			}
+			else {
+				res.json({
+					"status": 0,
+					"data": eval('(' + stdout + ')')
+				});
+			}
 		}
 	});
 });

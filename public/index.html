@@ -36,12 +36,17 @@
 					contentType: false,
 					dataType: 'JSON',
 					success: function(res) {
-						$('#result').append('<table class="table"><tbody></tbody></table>');
-						$.each(res.data, function(i, field) {
-							$('#result').children('table').children('tbody').append('<tr><td>' + 
-										i + '</td><td>' + field[0] + '</td><td>' + field[1] + '</td></tr>');
-						});
-						//console.log(res.data);
+						if (res.status == 0) {
+							$('#result').append('<table class="table"><tbody></tbody></table>');
+							$.each(res.data, function(i, field) {
+								$('#result').children('table').children('tbody').append('<tr><td>' + 
+											i + '</td><td>' + field[0] + '</td><td>' + field[1] + '</td></tr>');
+							});
+							//console.log(res.data);
+						}
+						else {
+							$('#result').append('<h2>Not Found : (</h2>');
+						}		
 					},
 					error: function(res) {
 						console.log(arguments);
