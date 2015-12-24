@@ -30,7 +30,7 @@ app.post('/public', multipartMiddleware, function(req, res) {
 			//console.log(stderr);
 			res.json({
 				"status": 0,
-				"data": stdout
+				"data": eval('(' + stdout + ')')
 			});
 		}
 	});
