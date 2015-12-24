@@ -24,7 +24,7 @@ $(document).ready(function() {
 				else {
 					$('#result').html('<h2>Not Found : (</h2>');
 				}
-				document.getElementById('input').value = '';
+				//document.getElementById('input').value = '';
 				document.getElementById('input').disabled = false;
 				document.getElementById('input').focus();
 			},
