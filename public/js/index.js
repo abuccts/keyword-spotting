@@ -16,9 +16,11 @@ $(document).ready(function() {
 				if (res.status == 0) {
 					$('#result').html('<table class="table"><tbody></tbody></table>');
 					$.each(res.data, function(i, field) {
-						var audioname = 'http://222.29.193.162:8008/audio/' + field[0] + '.mp3'; 
+						var audioname = window.location + field[0] + '.mp3'; 
 						$('#result').children('table').children('tbody').append('<tr><td>' + 
-									i + '</td><td>' + field[0] + '</td><td>' + field[1] + '</td><td><img height="15px" src="img/laba.png"></td></tr>');
+									i + '</td><td>' + field[0] + '</td><td>' + field[1] + 
+									'</td><td><img height="15px" src="img/laba.png" onclick="var Sound=new buzz.sound(' +
+									audioname + ');Sound.play();"></td></tr>');
 					});
 					//console.log(res.data);
 				}
