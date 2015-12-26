@@ -1,5 +1,5 @@
 {
-  "name": "redesigned-umbrella",
+  "name": "keyword-spotting",
   "version": "1.0.0",
   "description": "ASR Demo",
   "main": "app.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Abuccts/redesigned-umbrella.git"
+    "url": "git+https://github.com/Abuccts/keyword-spotting.git"
   },
   "keywords": [
     "asr",
@@ -22,8 +22,8 @@
   ],
   "author": "xyf",
   "bugs": {
-    "url": "https://github.com/Abuccts/redesigned-umbrella/issues"
+    "url": "https://github.com/Abuccts/keyword-spotting/issues"
   },
-  "homepage": "https://github.com/Abuccts/redesigned-umbrella#readme",
+  "homepage": "https://github.com/Abuccts/keyword-spotting#readme",
   "license": "ISC"
 }
