@@ -28,6 +28,10 @@
 	padding-top: 40px;
 }
 
+td img {
+	cursor: pointer;
+}
+
 .kw {
 	color: red;
 }
