@@ -9,7 +9,12 @@
 		<link rel="icon" href="img/KWS.png" title="Keyword Spotting">
 		
 		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
-		<link type="text/css" href="css/index.css" rel="stylesheet">				
+		<link type="text/css" href="css/index.css" rel="stylesheet">
+
+		<link href="css/sidebar.css" rel="stylesheet">
+		<link href="css/chat.css" rel="stylesheet">
+		<link href="css/justified-nav.css" rel="stylesheet">
+		<link href="css/sticky-footer.css" rel="stylesheet">	
 	</head>
 
 	<body class="webdesigntuts-workshop">
@@ -20,10 +25,27 @@
 			<button>Search</button>
 		</div>
 		<div id="result" class="container"></div>
+		
+		<div id="load" class="col-lg-12">
+					<img src="img/watson.gif"></img>
+				</div>
+		
+		<!-- Fixed navbar -->
+		<nav id="footer" class="navbar navbar-default navbar-fixed-bottom">	
+			<div class="micro">
+				<div class="micButton-preload"></div>
+				<div class="micButton" onmousedown="startRecord()" onmouseup="stopRecord()"></div>
+				<div id="log"><p id="output">Press to start speaking</p></div>
+			</div>
+		</nav>
+		<!-- /#Fixed navbar -->
 
 		<script src="js/jquery-1.10.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/buzz.min.js"></script>
 		<script src="js/index.js"></script>
+		
+		<script src="js/recorder.js"></script>
+		
 	</body>
 </html>

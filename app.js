@@ -43,6 +43,42 @@ app.post('/public', multipartMiddleware, function(req, res) {
 	});
 });
 
+app.post('/upload', multipartMiddleware, function (req, res) {
+	var fname = req.body.fname || 'file' + Math.floor(Math.random() * 1000000) + '.wav';
+	var filedata = req.body.data;
+
+	var data = filedata.substr(filedata.indexOf(',') + 1);
+
+	var b = new Buffer(data, 'base64');
+	var filepath = './public/upload/' + fname;
+	console.log(filepath);
+	
+	fs.writeFile(filepath, b, 'binary',function (err) {
+		if (err) {
+			console.log(err);
+			res.json({
+				status: -1,
+				msg: err
+			});
+		} else {
+			res.json({
+				status: 0,
+				msg: 'success',
+				id: fname
+			});
+		}
+	});
+});
+
+getFileName = function (filepath) {
+	// console.log('filepath', filepath);
+	if (filepath!=undefined) {
+		var fname = filepath.split('/');
+		fname = fname[fname.length - 1];
+		return fname;
+	}
+};
+
 var server = app.listen(8008, function () {
   var host = server.address().address;
   var port = server.address().port;
