@@ -100,6 +100,8 @@ function uploadAudio(wavData, filename){
 							load.style.visibility='hidden';
                         });
                     }, 500);
+					var str = res.seq;
+					$('#result').html('<h1>' + str + '</h1>');
                 }
             },
             error: function () {

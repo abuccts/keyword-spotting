@@ -53,6 +53,9 @@ app.post('/upload', multipartMiddleware, function (req, res) {
 	var filepath = './public/upload/' + fname;
 	console.log(filepath);
 	
+	var sh = './test.sh';
+	console.log('shell: ' + sh);
+	
 	fs.writeFile(filepath, b, 'binary',function (err) {
 		if (err) {
 			console.log(err);
@@ -61,10 +64,31 @@ app.post('/upload', multipartMiddleware, function (req, res) {
 				msg: err
 			});
 		} else {
-			res.json({
-				status: 0,
-				msg: 'success',
-				id: fname
+			process.execFile(sh, ['xx'], null, function(error, stdout, stderr) {
+				if (error !== null) {
+					console.log('exec error: ' + error);
+					res.json({
+						status: -1,
+						msg: err
+					});
+				}
+				else {
+					console.log(stdout);
+					//console.log(stderr);
+					if (stdout == 'None\n') {
+						res.json({
+							status: -2
+						});
+					}
+					else {
+						res.json({
+							status: 0,
+							msg: 'success',
+							id: fname,
+							seq: stdout
+						});
+					}
+				}
 			});
 		}
 	});
